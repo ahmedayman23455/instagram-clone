@@ -1,0 +1,29 @@
+{
+  "name": "image-optimization",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^6.0.0-alpha.6",
+    "@heroicons/react": "^1.0.5",
+    "@reduxjs/toolkit": "^1.7.2",
+    "firebase": "^9.6.7",
+    "framer-motion": "^6.2.6",
+    "next": "12.0.10",
+    "next-auth": "^4.2.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-moment": "^1.1.1",
+    "react-redux": "^7.2.6",
+    "sass": "^1.49.7",
+    "swiper": "^8.0.6"
+  },
+  "devDependencies": {
+    "eslint": "8.9.0",
+    "eslint-config-next": "12.0.10"
+  }
+}

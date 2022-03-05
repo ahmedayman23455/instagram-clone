@@ -1,0 +1,49 @@
+@use "../styles/abstracts" as *;
+@use "../styles/mixins" as *;
+
+.suggestions {
+  @include flow-vertical;
+
+  .suggestions__title {
+    display: flex;
+    align-items: center;
+
+    h2 {
+      color: rgba(128, 128, 128, 0.829);
+      font-weight: 600;
+      @include text-base;
+      flex-grow: 1;
+    }
+    button {
+      @include button;
+      @include text-sm;
+      color: hsl(var(--primary-color));
+    }
+  }
+
+  .suggest {
+    display: flex;
+    align-items: center;
+
+    @include flow-horizontal;
+    img {
+      width: 3.2rem;
+      height: 3.2rem;
+      @include rounded-full;
+    }
+    .suggest__content {  
+       flex-grow: 1;
+      h2 {
+        @include text-base;
+        font-weight: 600;
+      }
+      p {
+        @include text-sm;
+        color: rgba(128, 128, 128, 0.829);
+      }
+    }
+    button {
+      @include button;
+    }
+  }
+}

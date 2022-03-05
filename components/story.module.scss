@@ -1,0 +1,44 @@
+@use "../styles/abstracts" as *;
+@use "../styles/mixins" as *;
+
+.story {
+  @include flex-centering;
+  flex-direction: column;
+
+  .gradient {  
+   background: rgb(235,47,100);
+background: linear-gradient(90deg, rgba(235,47,100,1) 43%, rgba(249,108,44,1) 72%);
+   @include rounded-full;
+   padding:1.6px;
+   transition: transform 200ms ease-out;
+   @include hover {
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .story__image {
+    width: clamp(rem(45px) , 7vw , rem(70px)) ; 
+    height: clamp(rem(45px) , 7vw , rem(70px));
+    background-color: white;    
+    padding:2px;
+    cursor: pointer;
+   @include rounded-full;
+
+    img {
+      max-width: 100%;
+      object-fit: contain;
+      border-radius: 100%;
+    }
+
+  }
+
+  p {
+    @include text-xs;
+    max-width: 10ch;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

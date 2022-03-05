@@ -1,0 +1,180 @@
+@use "../styles/abstracts" as *;
+@use "../styles/mixins" as *;
+
+.header_wrapper {
+  background-color: hsl(var(--clr-secondary));
+  position: sticky;
+  top: 0 ;   
+  @include shadow-sm;
+  border-bottom: .5px solid rgba(0, 0, 0, 0.158);
+  z-index: 50;  
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 72rem;
+    padding: 0.7em 0; 
+    margin-inline: 1em; 
+    > * + * {
+    margin-left: .5em;
+  }
+
+    @include breakpoint(sm) {
+      margin-inline: auto;
+    }  
+    @include breakpoint(md) { 
+      padding: .7em;
+    }
+
+    /* ------------ left side ----------- */
+
+    .logo {
+      position: relative;
+      cursor: pointer;
+      &.large_logo {
+        width: 7rem;
+        height: 2.3rem;
+        font-size: 20px;
+        display: none;
+        @include breakpoint(lg) {
+          display: inline-grid;
+        }
+      }
+      &.small_logo {
+        width: 2.5rem;
+        height: 2.5rem;
+        min-width: 2rem;
+        @include breakpoint(lg) {
+          display: none;
+        }
+      }
+    }
+
+    /* ----------- middle side ---------- */
+
+    .header_search {
+      background-color: hsl(var(--clr-bg-input));
+      position: relative;
+      @include rounded-md;
+      padding: 0.3em;
+      width: 35ch;
+
+      .icon {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        margin-left: 0.8em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+          width: clamp(1.1rem, .2vw, 1.3rem);
+          height: clamp(1.1rem, .2vw, 1.3rem);
+          color: #8e8e8e;
+        }
+      }
+
+      input {
+        background-color: hsl(var(--clr-bg-input));
+        padding-left: 2em;
+        border: none;
+        @include rounded-md;
+        @include text-sm;
+        width: 100%;
+
+        &:focus {
+          outline: 2px solid rgba(0, 0, 0, 0.829);
+          outline-offset: 0.3em;
+        }
+        @include breakpoint(md) {
+          @include text-base;
+        }
+        @include breakpoint(lg) {
+          @include text-lg;
+        }
+      }
+    }
+
+    /* ----------- right side ----------- */
+
+    .icons {
+      @include flex-centering;
+      gap: .5em; 
+      flex-shrink: 0;
+
+      > *:not(button) {
+        width: clamp(1.4rem , 3.5vw , 1.7rem) ;
+        height: clamp(1.4rem , 3.5vw , 1.7rem) ;
+        display: none;
+        cursor: pointer;
+
+        &:nth-child(2){
+          display: block ;
+        }
+
+        @include breakpoint(md) {
+          display: block;
+
+          &:nth-child(2) {
+            display: none;
+          }
+        }
+      } 
+
+      @include breakpoint(md) {  
+        gap: 1.5em ; 
+        .directIcon {
+          transform: rotate(45deg);
+          position: relative;
+
+          @include hover {
+            &:hover {
+              transform: rotate(45deg) scale(1.1);
+            }
+          }
+
+          .directIcon_number {
+            position: absolute;
+            width: 1.01rem;
+            height: 1.01rem;
+            color: #fff;
+            @include text-xs;
+            @include flex-centering;
+            top: -0.4rem;
+            right: 0.2rem;
+            background-color: hsl(var(--clr-red) / 0.7);
+            @include rounded-full; 
+            transform: rotate(-45deg);
+          }
+        }
+      }
+
+      svg {
+        transition: all 0.3s ease-out;
+        color: hsl(var(--clr-primary));
+        @include hover {
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+
+      img {
+        width: clamp(2rem , 5vw , 2.5rem);
+        height: clamp(2rem , 5vw , 2.5rem);
+       @include rounded-full; 
+        cursor: pointer;  
+        display: block;  
+      }
+
+      button { 
+        @include button;  
+        color: hsl(var(--clr-primary))
+
+      }
+    }
+  }
+}

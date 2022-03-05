@@ -1,0 +1,148 @@
+@use "../styles/abstracts" as *;
+@use "../styles/mixins" as *;
+
+.post {
+  background-color: white;
+  @include shadow-sm;
+  border: 0.5px solid rgba(0, 0, 0, 0.158);
+  @include rounded-md;
+  @include flow-vertical;
+  position: relative;
+
+  @include text-sm;
+  @include breakpoint(md) {
+    @include text-base;
+  }
+
+  svg {
+    width: clamp(1.4rem, 3.5vw, 1.7rem);
+    height: clamp(1.4rem, 3.5vw, 1.7rem);
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    color: hsl(var(--clr-primary));
+    @include hover {
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  > * {
+    padding-inline: 1em;
+  }
+
+  /* ----------- post header ---------- */
+  .post__header {
+    display: flex;
+    align-items: center;
+    @include flow-horizontal(0.5em);
+    padding-top: 1em;
+
+    img {
+      width: clamp(2.2rem, 8vw, 2.5rem);
+      height: clamp(2.2rem, 8vw, 2.5rem);
+      @include rounded-full;
+    }
+
+    p {
+      font-weight: 600;
+      flex-grow: 1;
+    }
+    svg {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+  }
+
+  /* ----------- post image ----------- */
+  .post__image {
+    img {
+      object-fit: contain;
+      width: 100%;
+    }
+  }
+
+  /* ----------- post icons ----------- */
+  .post__icons {
+    @include flow-horizontal(0.5em);
+    display: flex;
+
+    > * {
+      &:nth-child(3) {
+        transform: rotate(45deg);
+
+        @include hover {
+          &:hover {
+            transform: rotate(45deg) scale(1.1);
+          }
+        }
+      }
+      &:last-child {
+        margin-left: auto;
+      }
+    }
+  }
+
+  /* ---------- post comments --------- */
+  .post__comments {
+    max-height: 8rem;
+    overflow: auto;
+    margin: 1em 0;
+    @include flow-vertical;
+    scroll-behavior: smooth;
+
+    .post__comment {
+      display: flex;
+      @include flow-horizontal(0.8em);
+
+      img {
+        width: clamp(2.2rem, 8vw, 2.5rem);
+        height: clamp(2.2rem, 8vw, 2.5rem);
+        @include rounded-full;
+      }
+
+      p {
+        padding-top: 0.5em;
+        flex-grow: 1;
+      }
+
+      span {
+        font-weight: 700;
+        padding-right: 0.3em;
+      }
+      time {
+        display: block;
+        @include text-sm;
+        color: #8e8e8e;
+      }
+    }
+  }
+  /* ----------- post input ----------- */
+
+  .post__input {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-top: 0.5px solid rgba(0, 0, 0, 0.158);
+    padding: 0.55em;
+
+    svg {
+      position: absolute;
+    }
+
+    input {
+      width: 100%;
+      padding: clamp(0.2em, 1vw, 0.5em);
+      margin-left: 2em;
+      border: none;
+      outline: none;
+    }
+
+    button {
+      @include button;
+      @include breakpoint(md) {
+        @include text-lg;
+      }
+    }
+  }
+}

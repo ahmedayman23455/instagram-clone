@@ -1,0 +1,20 @@
+@use "../styles/abstracts" as *;
+@use "../styles/mixins" as *;
+
+.caption {  
+   margin-bottom: 1em;
+   p { 
+      span { 
+         display: inline-block;
+      }  
+      .name {  
+         font-weight: 600;  
+         margin-right: .5em;
+      }
+      .btn { 
+         color: rgba(128, 128, 128, 0.829) ;   
+         cursor: pointer;  
+         margin-left:.5em;
+      }
+   }
+}

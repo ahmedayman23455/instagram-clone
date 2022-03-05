@@ -1,0 +1,39 @@
+// to edit the breakpoints, check the style.scss file
+
+$breakpoints: (
+  sm: 40em,
+  // 640px
+  md: 38em,
+  // 768px
+  lg: 49em,
+  // 1024px
+  xl: 64em,
+  // 1280px
+  2xl: 80em,
+  // 1536px
+) !default;
+
+@mixin breakpoint($breakpoint) {
+  @media (min-width: map-get($map: $breakpoints, $key: $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin breakpoint-down($breakpoint) {
+  @media (max-width: map-get($map: $breakpoints, $key: $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin breakpoint-limit($breakpoint1, $breakpoint2) {
+  @media (min-width: map-get($map: $breakpoints, $key: $breakpoint1)) and (max-width: map-get($map: $breakpoints, $key: $breakpoint2)) {
+    @content;
+  }
+}
+
+
+@mixin hover {  
+  @media (hover :hover) { 
+    @content ; 
+  }
+}

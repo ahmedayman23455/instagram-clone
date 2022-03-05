@@ -1,0 +1,32 @@
+@use "../styles/abstracts" as *;
+@use "../styles/mixins" as *;
+
+.signinWrapper {  
+   padding-inline: 1em;
+   .signinSection {    
+      background-color: white;  
+      max-width: 80ch;  
+      margin: auto;    
+      margin-top: 10vh;
+      display: flex; 
+      flex-direction: column;  
+      align-items: center;  
+      @include shadow-md;  
+      padding: 2em;  
+      @include flow-vertical(1.5em)
+   }
+
+   img {   
+      width:  clamp(12rem , 18vw , 18rem);
+      object-fit: contain;  
+      margin: auto;
+   }
+
+   button { 
+      @include button;  
+      background-color:  hsl(var(--clr-blue));  
+      color: white;   
+      padding: .7em 2em;   
+      @include rounded-md
+   }
+}

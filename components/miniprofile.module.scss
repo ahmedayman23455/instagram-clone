@@ -1,0 +1,46 @@
+@use "../styles/abstracts" as *;
+@use "../styles/mixins" as *;
+
+.miniProfile {
+  display: flex;
+  align-items: center;  
+  @include flow-horizontal(2em);
+
+  .miniProfile__user {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    @include flow-horizontal(0.5em);
+
+    img {
+      width: clamp(3rem, 4vw, 4.5rem);
+      height: clamp(3rem, 4vw, 4.5rem);  
+      @include rounded-full ;  
+    }
+
+    .miniProfile__userData {
+      color: hsl(var(--primary-color));
+      flex-grow: 1;
+      h2 {
+        white-space: nowrap;
+        font-weight: 600;
+        @include text-lg;
+      }
+
+      h3 {
+        white-space: nowrap;
+        font-weight: normal;
+        color: rgba(128, 128, 128, 0.829);
+        text-transform: uppercase;
+        @include text-xs;
+      }
+    }
+  }
+
+  button {
+    @include button;
+    @include breakpoint(md) {
+      @include text-sm;
+    }
+  }
+}

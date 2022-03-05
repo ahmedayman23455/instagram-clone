@@ -1,0 +1,64 @@
+@use "../styles/abstracts" as *;
+@use "../styles/mixins" as *;
+
+.stories {
+  position: relative;
+
+  /* ---------- storeis main ---------- */
+  .stories__main {
+    display: flex;
+    overflow-x: scroll;
+    gap: 0.3rem;
+    background-color: hsl(var(--clr-secondary));
+    padding: 0.3em ;
+    @include shadow-sm;
+    border: 0.5px solid rgba(0, 0, 0, 0.158);
+    @include rounded-md;
+    scroll-behavior: smooth;
+
+    /* hide scrollbar for chrome , safari , opera */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    /* hide scrollbar for IE , Edge , Firefox */
+    & {
+      -ms-overflow-style: none; /* IE and edge */
+      scrollbar-width: none; /* firefox */
+    }
+  }   
+
+  /* ------------- arrows ------------- */
+  .arrows {
+    position: absolute;
+    inset: 0;
+    left: 0.1rem;
+    right: 0.1rem;
+    //  z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   visibility:  hidden;
+    > * {
+      width: rem(26px);
+      height: rem(26px);  
+      background: none;    
+      display: block;   
+      cursor: pointer;
+      border: none;
+      padding: 0 ; 
+      
+      @include rounded-full;
+      &.visible {  
+         visibility: visible;
+      }
+      &.invisible { 
+         visibility: hidden;
+      }
+
+      svg {
+         @include rounded-full;      
+         color: whitesmoke; 
+      }
+    }
+  }
+}
